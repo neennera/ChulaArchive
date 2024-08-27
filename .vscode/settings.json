@@ -1,0 +1,32 @@
+{
+  "files.associations": {
+    "iostream": "cpp",
+    "random": "cpp",
+    "*.tcc": "cpp",
+    "list": "cpp",
+    "array": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "vector": "cpp",
+    "string_view": "cpp",
+    "initializer_list": "cpp",
+    "ranges": "cpp",
+    "span": "cpp",
+    "stacktrace": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp",
+    "compare": "cpp",
+    "barrier": "cpp",
+    "chrono": "cpp",
+    "latch": "cpp",
+    "limits": "cpp",
+    "semaphore": "cpp",
+    "bitset": "cpp",
+    "algorithm": "cpp",
+    "iomanip": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
+}
