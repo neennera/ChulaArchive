@@ -1,0 +1,74 @@
+---
+title: "BootCamp HW"
+author: "Naphat"
+date: "2023-07-03"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## Dataset
+งานนี้เราจะใช้ diamonds
+
+```{r}
+library(ggplot2)
+
+summary(diamonds)
+```
+
+## HW1 : ราคาของ diamonds
+
+```{r}
+ggplot(data=diamonds, aes(x=price)) +
+  geom_histogram(fill="gray", color="black") +
+  ggtitle("Price of Diamonds")
+
+```
+
+จากกราฟ จะเห็นได้ว่ากราฟมีความเบ้ซ้าย คือเพรชมักจะมีราคาในช่วง 0-50000 มาก
+ยิ่งราคาแพงขึ้น จำนวนเพรชที่ขายในช่วงนั้นก็ยิ่งน้อยลง แนวโน้มเป็น curve
+
+## HW2 : Clarity
+
+```{r}
+ggplot(data = diamonds, aes(x=clarity)) + 
+  geom_bar(fill='red')
+
+```
+
+จากกราฟเพชรมี clarity แบ SI1 มากที่สุด และมีแบบ I1 น้อยที่สุด
+
+## HW2 : Depth of Diamond
+
+```{r}
+ggplot(data=diamonds, aes(x=depth, y =..density..)) + 
+  geom_histogram(fill = "steelblue") +
+  geom_density(color = "red", linewidth = 1)
+
+```
+
+จากกราฟ diamond มีการตัด depth ที่ราวๆ 63 มาก
+
+## HW4 : Cut and Price
+
+```{r}
+ggplot(data=diamonds, aes(x=cut, y=price)) + 
+  geom_boxplot()
+```
+
+จากกราฟรูปกล่อง เห็นได้ว่าdiamond ที่มีการตัดแบบ Fair มีความกว้าง range ของ price น้อยสุด แต่ Premium มีความกว้างมากที่สุด
+หากดูที่ค่าเฉลี่ย จะพบว่าเพรชที่ตัดแบบ Premium มีราคาสูงสุด
+
+## HW5 : carat and Price but in cut group
+
+```{r}
+library("dplyr")
+ggplot(sample_frac(diamonds, 0.20), aes(x=carat, y=price, col=price)) +
+  geom_point(alpha = 0.4) +
+  scale_color_gradient(low = "lightblue", high = "blue") +
+  geom_smooth(method = lm, color = "red") +
+  facet_wrap(~cut, ncol = 2)
+
+```
+
+จากกราฟ พบว่า หากเรามี caratมาก ราคาของเพชรก็จะมากไปด้วย ในทุกๆ cut
