@@ -17,7 +17,8 @@
     "valarray": "cpp",
     "iostream": "cpp",
     "*.tcc": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "coroutine": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
