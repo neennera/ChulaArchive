@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ll long long
 
 int N, M, a, b, op;
 map<int, int> m;
-set<int> item;
+set<pair<int, int>> s;
 
 int main()
 {
@@ -12,7 +13,8 @@ int main()
     for (int i = 0; i < N; i++)
     {
         cin >> a;
-        item.insert(a);
+        m[a] = 0;
+        s.insert(make_pair(0, a));
     }
     while (M--)
     {
@@ -20,36 +22,39 @@ int main()
         if (op == 1)
         {
             cin >> a >> b;
-            if (item.find(a) == item.end())
+            if (m.find(a) == m.end())
             {
                 continue;
             }
+
+            s.erase(s.find(make_pair(m[a], a)));
             m[a] += b;
+            s.insert(make_pair(m[a], a));
         }
         else
         {
-            int ans = 0, ans_ct = -1;
+            bool ans = 1;
             int k;
             cin >> k;
-            for (auto [f, s] : m)
+
+            auto it = s.lower_bound(make_pair(k, 0));
+
+            if (it == s.begin())
             {
-                if (s <= 0 || s >= k)
+                ans = 0;
+            }
+            else
+            {
+                it--;
+                if (it->first == 0)
                 {
-                    continue;
-                }
-                if (ans_ct == s && f > ans)
-                {
-                    ans = f;
-                }
-                else if (s > ans_ct)
-                {
-                    ans = f;
-                    ans_ct = s;
+                    ans = 0;
                 }
             }
-            if (ans_ct != -1)
+
+            if (ans)
             {
-                cout << ans << "\n";
+                cout << it->second << "\n";
             }
             else
             {
