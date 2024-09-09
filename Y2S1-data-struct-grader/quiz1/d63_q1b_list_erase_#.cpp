@@ -5,11 +5,11 @@
 using namespace std;
 void list_erase(vector<int> &v, vector<int> &pos)
 {
-    sort(pos.begin(), pos.end());
+    // write your code here
     vector<int> vv;
+    sort(pos.begin(), pos.end());
     auto it = pos.begin();
-    int N = v.size();
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < v.size(); i++)
     {
         if (i == *it)
         {

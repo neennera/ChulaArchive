@@ -7,22 +7,20 @@ set<int> s;
 int main()
 {
     ios_base::sync_with_stdio(0), cin.tie(0);
-
     cin >> N;
     for (int i = 0; i < N; i++)
     {
         cin >> a;
-        s.insert(a);
         mm = min(mm, a);
         MM = max(MM, a);
+        s.insert(a);
     }
-
-    if (s.size() == N && mm == 1 && MM == N)
+    if (s.size() != N || mm != 1 || MM != N)
     {
-        cout << "YES";
+        cout << "NO";
     }
     else
     {
-        cout << "NO";
+        cout << "YES";
     }
 }

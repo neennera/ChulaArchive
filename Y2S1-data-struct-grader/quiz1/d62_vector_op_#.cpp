@@ -2,12 +2,14 @@
 using namespace std;
 
 vector<int> v;
+int N, a;
 string s;
-int a, N;
+
 int main()
 {
+    // ios_base::sync_with_stdio(0), cin.tie(0);
     cin >> N;
-    for (size_t i = 0; i < N; i++)
+    while (N--)
     {
         cin >> s;
         if (s == "pb")
@@ -15,34 +17,27 @@ int main()
             cin >> a;
             v.push_back(a);
         }
-        if (s == "sa")
+        else if (s == "sa")
         {
             sort(v.begin(), v.end());
         }
-        if (s == "sd")
+        else if (s == "sd")
         {
             sort(v.begin(), v.end(), greater<int>());
         }
-        if (s == "r")
+        else if (s == "r")
         {
             reverse(v.begin(), v.end());
         }
-        if (s == "d")
+        else
         {
             cin >> a;
             v.erase(v.begin() + a);
         }
-
-        // cout << ">>>>>>> " << i << " : ";
-        // for (auto a : v)
-        // {
-        //     cout << a << " ";
-        // }
-        // cout << "\n";
     }
-
-    for (auto a : v)
+    for (auto x : v)
     {
-        cout << a << " ";
+        cout << x << " ";
     }
+    cout << "\n";
 }
