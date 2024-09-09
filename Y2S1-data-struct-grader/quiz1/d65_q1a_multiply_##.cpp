@@ -6,24 +6,23 @@ void member_multiply(vector<int> &v,
                      vector<pair<vector<int>::iterator, int>> &multiply)
 {
     // write your code here
-    int plus = 0;
-    sort(multiply.begin(), multiply.end());
     vector<int> vv;
+    sort(multiply.begin(), multiply.end());
     auto it = multiply.begin();
-    for (auto i = v.begin(); i != v.end(); i++)
+    auto iv = v.begin();
+    while (iv != v.end())
     {
-        int value = *i;
-        if ((*it).first == i)
+        if (it != multiply.end() && iv == it->first)
         {
-            for (size_t j = 0; j < (*it).second; j++)
+            for (int i = 0; i < it->second; i++)
             {
-                vv.push_back(value);
+                vv.push_back(*iv);
             }
             it++;
         }
-        vv.push_back(value);
+        vv.push_back(*iv);
+        iv++;
     }
-
     v = vv;
 }
 int main()
