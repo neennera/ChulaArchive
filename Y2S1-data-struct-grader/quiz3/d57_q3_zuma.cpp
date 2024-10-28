@@ -65,12 +65,11 @@ int main()
     Node *t = str;
     while (true)
     {
-        // cout << t->last->count << " - ";
         if (t->last->count >= 3)
         {
             t->first->display = 0;
             Node *l = t->first, *r = t;
-            while (l->first->prev != nullptr && r->last->next->last != nullptr)
+            while (l->first->prev != nullptr && r->last->next != nullptr)
             {
                 l = l->first->prev;
                 r = r->last->next->last;
