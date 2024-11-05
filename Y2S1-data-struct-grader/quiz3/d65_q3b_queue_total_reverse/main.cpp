@@ -12,7 +12,7 @@ int main()
     q.push(i);
   }
   q.reverse();
-  q.push(n + 1);
+  q.push(n);
   CP::queue<int> t = q;
   while (!t.empty())
   {

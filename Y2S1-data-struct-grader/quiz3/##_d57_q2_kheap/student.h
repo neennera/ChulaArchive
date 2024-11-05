@@ -10,7 +10,7 @@ void CP::priority_queue<T, Comp>::fixUp(size_t idx)
     T tmp = mData[idx];
     while (idx > 0)
     {
-        size_t p = (idx - 1) / 4;
+        int p = (idx - 1) / 4;
         if (mLess(tmp, mData[p]))
             break;
         mData[idx] = mData[p];
@@ -23,22 +23,20 @@ template <typename T, typename Comp>
 void CP::priority_queue<T, Comp>::fixDown(size_t idx)
 {
     T tmp = mData[idx];
-    size_t c;
-    while ((c = 4 * idx + 1) < mSize)
+    while ((idx * 4) + 1 < mSize)
     {
-        size_t cc = c;
-        for (size_t i = 0; i < 4; i++)
+        int c = (idx * 4) + 1;
+        for (size_t i = 1; i <= 4; i++)
         {
-            if (c + i < mSize && mLess(mData[cc], mData[c + i]))
-            {
-                cc = c + i;
-            }
+            if ((idx * 4) + i >= mSize)
+                break;
+            if (mLess(mData[c], mData[(idx * 4) + i]))
+                c = (idx * 4) + i;
         }
-
-        if (mLess(mData[cc], tmp))
+        if (mLess(mData[c], tmp))
             break;
-        mData[idx] = mData[cc];
-        idx = cc;
+        mData[idx] = mData[c];
+        idx = c;
     }
     mData[idx] = tmp;
 }

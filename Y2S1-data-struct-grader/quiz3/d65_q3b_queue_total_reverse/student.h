@@ -13,7 +13,9 @@ const T &CP::queue<T>::front() const
 {
   // You MAY need to edit this function
   if (!aux)
+  {
     return mData[mFront];
+  }
   return mData[(mFront + mSize - 1) % mCap];
 }
 
@@ -22,7 +24,9 @@ const T &CP::queue<T>::back() const
 {
   // You MAY need to edit this function
   if (!aux)
+  {
     return mData[(mFront + mSize - 1) % mCap];
+  }
   return mData[mFront];
 }
 

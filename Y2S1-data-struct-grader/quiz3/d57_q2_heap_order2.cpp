@@ -38,7 +38,7 @@ namespace CP
         size_t p = (idx - 1) / 2;
         if (mLess(tmp, mData[p]))
           break;
-        mData[idx] = mData[p];
+        mData[p] = mData[idx];
         idx = p;
       }
       mData[idx] = tmp;

@@ -3,19 +3,18 @@ using namespace std;
 #define ll long long
 int main()
 {
-    ll n, k, c, s = 1, h = 0;
+    ll n, k, c = 1, id = 0, l = 0;
     cin >> n >> k;
-    c = k;
     if (k == 1)
     {
         cout << n - 1;
         return 0;
     }
-    while (s < n)
+    while (id < n)
     {
-        s += c;
-        c *= k;
-        h++;
+        l++;
+        id += c;
+        c = c * k;
     }
-    cout << h;
+    cout << l - 1;
 }
