@@ -17,17 +17,56 @@ int main()
         }
         else
         {
-            lr.push_front(a);
+            lr.push_back(a);
         }
     }
     ll.push_back(V);
-    auto ill = ll.back();
+    auto ill = ll.rbegin();
     auto irr = lr.begin();
-    while (!ll.empty() || !lr.empty())
+    while (ill != ll.rend() || irr != lr.end())
     {
-        if (ill != irr)
+        int ct = 0, color;
+        if (ill != ll.rend())
         {
-            break;
+            color = *ill;
         }
+        else
+        {
+            color = *irr;
+        }
+        auto till = ill;
+        auto tirr = irr;
+        while (till != ll.rend() && *till == color)
+        {
+            ct++;
+            till++;
+        }
+        while (tirr != lr.end() && *tirr == color)
+        {
+            ct++;
+            tirr++;
+        }
+        if (ct < 3)
+            break;
+        // cout << *ill << " " << *irr << "\n";
+
+        ill = till;
+        irr = tirr;
+    }
+    // cout << "***\n"
+    //      << *ill << " " << *irr << "\n";
+
+    auto it = ll.begin();
+    while (ill != ll.rend())
+    {
+        cout << *it << " ";
+        it++;
+        ill++;
+    }
+    it = irr;
+    while (it != lr.end())
+    {
+        cout << *it << " ";
+        it++;
     }
 }
