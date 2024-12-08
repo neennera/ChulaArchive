@@ -1,0 +1,3 @@
+3_1 : state gen ได้ ไปที่ analysis -> synthesis -> sequential -> 3 variable
+3_2 : วนเอาเข้า load ตอนนี้จะค้างค่าไว้
+3_3 : new, n เราจะต้องรอให้ state = 1 ก่อน ดังนั้น เอาค่ายัด D-flipflop เพื่อรอเวลาไว้ด้วย

@@ -1,0 +1,14 @@
+---------
+Digital Program
+github : https://github.com/hneemann/Digital
+
+open cmd
+>> cd C:\Users\WINDOW X\Documents\1.University\diglolab\DigitalProgram
+>> java -jar Digital.jar
+
+-------------
+expresso
+ย้าย espresso มาในโฟลเดอร์
+เปิดcmd ใช้
+>> espresso in.pla > out.pla : file
+>> espresso -o eqntott in3.pla > out3_b.pla: boolean

@@ -1,0 +1,7 @@
+- A has 4 bits -> every gate must set to be 4 data bits
+- If you want -1 in adder, set databit to 4, set -1, show decimal
+
+*** -X-1 = not X
+- A-B-1 use A adder not B : A + (B complimant) +1 = A + (not B +1) -1 = A + not A
+- A-B use : A + (not B + 1)
+- -A-1 = ( not A + 1 ) -1 = not A
